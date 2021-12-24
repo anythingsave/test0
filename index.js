@@ -27,7 +27,7 @@
             keySystemOptions: [{
                 name: 'com.widevine.alpha',
                 options: {
-                    serverURL: 'https://widevine-proxy.appspot.com/proxy'
+                    serverURL: 'https://license.uat.widevine.com/cenc/getcontentkey/widevine_test'
                 }
             }]
         });
