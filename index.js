@@ -24,7 +24,12 @@
         video.src({
             type: 'application/x-mpegURL',
             src: 'sample/index.m3u8',
-
+            keySystemOptions: [{
+                name: 'com.widevine.alpha',
+                options: {
+                    serverURL: 'https://widevine-proxy.appspot.com/proxy'
+                }
+            }]
         });
 
         video.on(['loadstart', 'loadedmetadata', 'loadeddata', 'play', 'playing', 'pause', 'suspend', 'seeking', 'seeked', 'waiting', 'canplay', 'canplaythrough', 'ratechange', 'ended', 'emptied', 'error', 'abort'], (e) => {
