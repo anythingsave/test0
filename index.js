@@ -1,6 +1,6 @@
 {
 
-    document.oncontextmenu = function () { return false; }
+    document.oncontextmenu = function () {return false;}
 
 
 
@@ -13,18 +13,23 @@
     }
 
     ready(() => {
-        let video = videojs('hls_video1', {
-            width: 1247, // •
-            height: 623.5, // ‚‚³
-            autoplay: false, // Ž©“®Ä¶
-            loop: false, // ƒ‹[ƒvÄ¶
-            controls: true, // ƒRƒ“ƒgƒ[ƒ‹§Œä•\Ž¦
-            preload: 'auto', // “Ç‚Ýž‚Ý§Œä
+        let video = videojs('video1', {
+            width: 734, // å¹…
+            height: 413, // é«˜ã•
+            autoplay: false, // è‡ªå‹•å†ç”Ÿ
+            loop: false, // ãƒ«ãƒ¼ãƒ—å†ç”Ÿ
+            controls: true, // ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«åˆ¶å¾¡è¡¨ç¤º
+            preload: 'auto', // èª­ã¿è¾¼ã¿åˆ¶å¾¡
         });
         video.src({
-            type: 'application/x-mpegURL',
-            src: 'sample/index.m3u8',
-
+            type: 'application/dash+xml',
+            src: 'stream/mpd/sample/index.mpd',
+            keySystemOptions: [{
+                name: 'com.widevine.alpha',
+                options: {
+                    serverURL: 'https://widevine-proxy.appspot.com/proxy'
+                }
+            }]
         });
 
         video.on(['loadstart', 'loadedmetadata', 'loadeddata', 'play', 'playing', 'pause', 'suspend', 'seeking', 'seeked', 'waiting', 'canplay', 'canplaythrough', 'ratechange', 'ended', 'emptied', 'error', 'abort'], (e) => {
@@ -41,4 +46,3 @@
         });
     });
 }
-
