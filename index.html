@@ -10,7 +10,7 @@
 <body>
     <div class="embed">
         <div>
-            <video id="my-video" class="video-js vjs-default-skin" width="640" height="360">
+            <video id="my-video" class="video-js vjs-default-skin vjs-big-play-centered" width="640" height="360">
                 <source src="https://anythingsave.github.io/test0/out/stream.mpd" type="application/dash+xml">
                 <!-- Check if the type is correct -->
             </video>
@@ -25,7 +25,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var player = videojs('my-video', {
-                autoplay: true,  // Ensure autoplay is explicitly set
+                // Ensure autoplay is explicitly set
                 techOrder: ['shaka', 'html5'],
                 shaka: {
                     drm: {
